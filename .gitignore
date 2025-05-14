@@ -1,0 +1,25 @@
+# Dependências
+node_modules/
+
+# Ambiente
+.env
+.env.local
+.firebase-admin.json
+
+# Logs e dados sensíveis
+data/*.json
+!data/contato.json.example  # Exemplo opcional (sem dados reais)
+logs.txt
+
+# IDE/Editor
+.vscode/
+.idea/
+
+# Builds/Next.js
+.next/
+out/
+dist/
+
+# Sistema
+.DS_Store
+*.log
