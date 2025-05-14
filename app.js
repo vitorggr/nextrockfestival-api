@@ -16,6 +16,19 @@ app.use(cors({
 app.use(express.json());
 app.use(logger);
 
+// Rota raiz
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Next Rock Festival API',
+    version: '1.0.0',
+    endpoints: {
+      health: '/ping',
+      inscricoes: '/api/inscricao',
+      contato: '/api/contato'
+    }
+  });
+});
+
 // Rotas
 app.use('/api/contato', contatoRoutes);
 app.use('/api/inscricao', inscricaoRoutes);
