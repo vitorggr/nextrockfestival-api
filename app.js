@@ -6,10 +6,13 @@ const contatoRoutes = require('./routes/contato.routes');
 const inscricaoRoutes = require('./routes/inscricao.routes');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3000;
 
 // Configurações
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ 
+  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  credentials: true
+}));
 app.use(express.json());
 app.use(logger);
 
@@ -19,9 +22,10 @@ app.use('/api/inscricao', inscricaoRoutes);
 
 // Health Check
 app.get('/ping', (req, res) => {
-  res.status(200).json({ status: 'online' });
+  res.json({ status: 'ok' });
 });
 
+// Inicialização
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
