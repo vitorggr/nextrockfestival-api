@@ -26,15 +26,35 @@ class ContatoService {
         await fs.writeFile(DATA_PATH, JSON.stringify(mensagens, null, 2));
     }
 
+    validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
     async criar({ titulo, nome, email, descricao }) {
+        // Validação dos campos
+        if (!titulo || typeof titulo !== 'string' || titulo.trim().length === 0) {
+            throw new Error('Título é obrigatório');
+        }
+        if (!nome || typeof nome !== 'string' || nome.trim().length === 0) {
+            throw new Error('Nome é obrigatório');
+        }
+        if (!email || !this.validateEmail(email)) {
+            throw new Error('Email inválido');
+        }
+        if (!descricao || typeof descricao !== 'string' || descricao.trim().length === 0) {
+            throw new Error('Descrição é obrigatória');
+        }
+
         const mensagens = await this.carregarMensagens();
 
         const novaMensagem = {
             id: Date.now().toString(),
-            titulo,
-            nome,
-            email,
-            descricao,
+            titulo: titulo.trim(),
+            nome: nome.trim(),
+            email: email.trim(),
+            descricao: descricao.trim(),
+            status: 'pendente',
             createdAt: new Date().toISOString()
         };
 

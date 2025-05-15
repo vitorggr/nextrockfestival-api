@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const logger = require('./middlewares/logger.middleware'); 
@@ -6,7 +7,7 @@ const contatoRoutes = require('./routes/contato.routes');
 const inscricaoRoutes = require('./routes/inscricao.routes');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Configurações
 app.use(cors({ 
