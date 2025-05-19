@@ -1,6 +1,8 @@
 # Next Rock Festival API
 
-API REST desenvolvida com Node.js e Express.js para gerenciar inscrições e contatos do app Next Rock Festival também hospedado nessa conta do github (https://github.com/vitorggr/nextrockfestival). A api e os apps estão hospedados respectivamente nas URLs abaixo:
+API REST desenvolvida com Node.js e Express.js para gerenciar inscrições e contatos do app Next Rock Festival também hospedado nessa conta do github (https://github.com/vitorggr/nextrockfestival). 
+
+A api e o app estão hospedados respectivamente nas URLs abaixo:
 
 - https://nextrockfestival-api.onrender.com/
 - https://nextrockfestival.vercel.app/
