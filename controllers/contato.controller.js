@@ -20,7 +20,6 @@ async function enviarMensagem(req, res) {
   try {
     const { titulo, nome, email, descricao } = req.body;
 
-    // Verificação inicial dos campos
     if (!titulo || !nome || !email || !descricao) {
       return res.status(400).json({ 
         success: false,
@@ -43,7 +42,6 @@ async function enviarMensagem(req, res) {
   } catch (error) {
     console.error('Erro ao enviar mensagem:', error);
     
-    // Verifica se é um erro de validação
     if (error.message.includes('obrigatório') || error.message.includes('inválido')) {
       return res.status(400).json({ 
         success: false,

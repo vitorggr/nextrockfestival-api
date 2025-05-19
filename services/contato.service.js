@@ -32,7 +32,6 @@ class ContatoService {
     }
 
     async criar({ titulo, nome, email, descricao }) {
-        // Validação dos campos
         if (!titulo || typeof titulo !== 'string' || titulo.trim().length === 0) {
             throw new Error('Título é obrigatório');
         }
